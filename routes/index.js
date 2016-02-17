@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongo = require("mongodb").MongoClient;
+var dbObj;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -18,7 +19,7 @@ router.get('/', function(req, res, next) {
    } 
 }); 
   
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Express123' });
 });
 
 module.exports = router;
