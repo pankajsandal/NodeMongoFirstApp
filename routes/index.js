@@ -5,7 +5,8 @@ var dbObj;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  mongo.connect('mongodb://AppUser:wipro@ds062438.mongolab.com:62438/wiproappdb',function(err,db) { 
+  //mongodb://AppUser:wipro@ds062438.mongolab.com:62438/wiproappdb
+  mongo.connect('mongodb://10.50.195.22/MyFirstDB',function(err,db) { 
  if(err)    { 
      //res.send("can not connect to db : "+err); 
      res.render('index', { title: ''+err });
