@@ -2,8 +2,8 @@ var mongo = require("mongodb").MongoClient;
 var dbObj;
 var express = require('express');
 var employeeRouter = express.Router();
-var connectionString = process.env.CUSTOMCONNSTR_MONGOLAB_URI;
-
+//var connectionString = process.env.CUSTOMCONNSTR_MONGOLAB_URI;
+/*
 mongo.connect(connectionString ,function(err,db) {
 if(err)    {
     res.send("can not connect to db : "+err);
@@ -16,7 +16,7 @@ else
      res.send("Connection with db successful");
     }
 })
-
+*/
 exports.GetData = function(req,res)
 {
     
