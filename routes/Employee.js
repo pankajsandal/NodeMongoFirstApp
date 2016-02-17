@@ -19,7 +19,7 @@ else
 }
 })
 
-employeeRouter.get('/',function(req,res)
+exports.GetData = employeeRouter.get('/',function(req,res)
 {
     
    dbObj.employees.find().toArray(function (err,data) {
