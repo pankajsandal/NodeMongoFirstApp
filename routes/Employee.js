@@ -29,9 +29,7 @@ employeeRouter.get('/',function(req,res)
     }
     else
     {
-    data.forEach(function(element) {
-      res.send(element);  
-    }, this);  
+    res.send(data); 
     return;
     }
 });
