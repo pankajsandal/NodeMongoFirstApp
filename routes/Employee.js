@@ -4,7 +4,7 @@ var express = require('express');
 var employeeRouter = express.Router();
 
 
-mongo.connect('mongodb://localhost/MyFirstDB',function(err,db) {
+mongo.connect('mongodb://AppUser:wipro@ds062438.mongolab.com:62438/wiproappdb',function(err,db) {
 if(err)    {
     console.log("can not connect to db : "+err);
 }
@@ -12,7 +12,7 @@ else
 {
     console.log("Connection with db successful");
     dbObj = {db:db,
-    employees : db.collection('Employee')};
+    employees : db.collection('Users')};
 }
 })
 
