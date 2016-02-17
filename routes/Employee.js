@@ -19,7 +19,7 @@ else
 }
 })
 
-exports.GetData = employeeRouter.get('/',function(req,res)
+exports.GetData = function(req,res)
 {
     
    dbObj.employees.find().toArray(function (err,data) {
@@ -34,7 +34,7 @@ exports.GetData = employeeRouter.get('/',function(req,res)
     }
 });
 
-});
+};
 
 
 
