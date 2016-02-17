@@ -7,16 +7,14 @@ var employeeRouter = express.Router();
 mongo.connect('mongodb://WiproCampus:Ou3a9mhRfwM06Hj1YY1j2FRjIpEokTCU5UP_wO6hnbY-@ds058548.mongolab.com:58548/WiproCampus',function(err,db) {
 if(err)    {
     res.send("can not connect to db : "+err);
-    return ;
+   
 }
 else
 {
-   
     dbObj = {db:db,
     employees : db.collection('Users')};
      res.send("Connection with db successful");
-     return;
-}
+    }
 })
 
 exports.GetData = function(req,res)
@@ -30,7 +28,7 @@ exports.GetData = function(req,res)
     else
     {
     res.send(data); 
-    return;
+    
     }
 });
 
