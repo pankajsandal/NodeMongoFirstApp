@@ -4,7 +4,6 @@ var mongo = require("mongodb").MongoClient;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  
   mongo.connect('mongodb://AppUser:wipro@ds062438.mongolab.com:62438/wiproappdb',function(err,db) { 
  if(err)    { 
      //res.send("can not connect to db : "+err); 
