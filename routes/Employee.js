@@ -4,7 +4,7 @@ var express = require('express');
 var employeeRouter = express.Router();
 //var connectionString = process.env.CUSTOMCONNSTR_MONGOLAB_URI;
 
-mongo.connect('mongodb://AppUser:wipro@ds062438.mongolab.com:62438/wiproappdb',function(err,db) {
+mongo.connect('mongodb://WiproCampus:Ou3a9mhRfwM06Hj1YY1j2FRjIpEokTCU5UP_wO6hnbY-@ds058548.mongolab.com:58548/WiproCampus',function(err,db) {
 if(err)    {
     res.send("can not connect to db : "+err);
     return ;
