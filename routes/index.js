@@ -18,8 +18,6 @@ router.get('/', function(req, res, next) {
      res.render('index', { title: 'Connection Successful' });
    } 
 }); 
-  
-  res.render('index', { title: 'Express123' });
 });
 
 module.exports = router;
