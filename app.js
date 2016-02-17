@@ -10,6 +10,7 @@ var employeeFunction = require('./routes/Employee');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+
 var app = express();
 
 // view engine setup
@@ -27,8 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/allEmployee',employeeFunction.list);
-app.get('/Employee/:name',employeeFunction.singleemployee);
+app.use('/Employees',employeeFunction.default);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
