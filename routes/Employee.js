@@ -1,37 +1,46 @@
 var mongo = require("mongodb").MongoClient;
-var dbObj;
+//var dbObj;
 var express = require('express');
 var employeeRouter = express.Router();
-
-
-mongo.connect('mongodb://AppUser:wipro@ds062438.mongolab.com:62438/wiproappdb',function(err,db) {
+//var connectionString = process.env.CUSTOMCONNSTR_MONGOLAB_URI;
+/*
+mongo.connect(connectionString ,function(err,db) {
 if(err)    {
-    console.log("can not connect to db : "+err);
+    res.send("can not connect to db : "+err);
+   
 }
 else
 {
-    console.log("Connection with db successful");
     dbObj = {db:db,
     employees : db.collection('Users')};
-}
+     res.send("Connection with db successful");
+    }
 })
-
-employeeRouter.get('/',function(req,res)
+*/
+exports.GetData = function(req,res)
 {
-    
-   dbObj.employees.find().toArray(function (err,data) {
+    mongo.connect('mongodb://AppUser:wipro@ds062438.mongolab.com:62438/wiproappdb' ,function(err,db) {
     if(err)    {
-    console.log('Can not connect to table Employee : '+err);
+    res.send("can not connect to db : "+err);
+        }
+    else
+    {
+    var dbObj = {db:db,
+    employees : db.collection('Users')};
+    dbObj.employees.find().toArray(function (err,data) {
+    if(err)    {
+    res.send('Can not connect to table Employee : '+err);
+    return;
     }
     else
     {
-    data.forEach(function(element) {
-      console.log(element);  
-    }, this);    
+    res.send(data);
     }
 });
-
+    }
 });
+   
+};
 
 
 
@@ -43,11 +52,13 @@ employeeRouter.get('/:name',function(req,res)
     {
       if(err)
     {
-        console.log("cannot connect to single call : "+err);
+        res.send("cannot connect to single call : "+err);
+        return;
     }
     else
     {
-        console.log(data.Dept);
+       res.send(data);
+       return;
     }  
         
     });     
@@ -64,11 +75,13 @@ employeeRouter.post('/Insert/:name/:Dept/:Role',function(req,err)
     {
         if(err)
         {
-           console.log("error while inserting : "+err);
+          res.send("error while inserting : "+err);
+          return;
         }
         else
         {
-            console.log("insert successful : "+result);            
+            res.send("insert successful : "+result);   
+            return;
         }        
     });
 });
@@ -81,11 +94,13 @@ employeeRouter.put('/Update/:name/:Dept?/:Role?', function(req,res) {
      {
         if(err)
         {
-            console.log("error while updating : "+err);
+            res.send("error while updating : "+err);
+            return;
         } 
          else
          {
-             console.log("update successful : "+result);
+             res.send("update successful : "+result);
+             return;
          }
      });
 }); 
